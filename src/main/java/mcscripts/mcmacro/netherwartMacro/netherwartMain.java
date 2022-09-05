@@ -101,6 +101,7 @@ public class netherwartMain {
 
         if (player.getHorizontalFacing() == EnumFacing.NORTH) {
             KeyBinding.setKeyBindState(Main.mc.gameSettings.keyBindForward.getKeyCode(), true);
+            KeyBinding.setKeyBindState(Main.mc.gameSettings.keyBindSneak.getKeyCode(), true);
             if (Main.direction == Main.mc.gameSettings.keyBindRight.getKeyCode()) {
                 checker = player.getPosition().west(2);
                 tick++;
@@ -136,8 +137,6 @@ public class netherwartMain {
                 }
             }
         }
-
-
     }
 
 
