@@ -6,6 +6,11 @@ import mcscripts.mcmacro.proxy.ClientProxy;
 import mcscripts.mcmacro.proxy.CommonProxy;
 import mcscripts.mcmacro.util.KeyInputHandler;
 import mcscripts.mcmacro.util.Reference;
+<<<<<<< HEAD
+=======
+import mcscripts.mcmacro.util.updater;
+import net.minecraft.block.Block;
+>>>>>>> cec622fa6d503fbef4d5a2fa2ea1cbaee5f2d1d1
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.settings.KeyBinding;
@@ -31,6 +36,7 @@ public class Main {
     public static EntityPlayerSP player = mc.player;
     public static int tick = 0;
     public static int direction;
+    public static final String VERSION = "0.1";
 
 
     @Mod.Instance(Reference.MODID)
@@ -40,7 +46,14 @@ public class Main {
     public static CommonProxy proxy;
 
     @Mod.EventHandler
+<<<<<<< HEAD
     public void preinit(FMLPreInitializationEvent event) {proxy.preInit(event);}
+=======
+    public void preinit(FMLPreInitializationEvent event) {
+        proxy.preInit(event);
+        updater.checkUpdater();
+    }
+>>>>>>> cec622fa6d503fbef4d5a2fa2ea1cbaee5f2d1d1
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)  {
@@ -50,7 +63,11 @@ public class Main {
         MinecraftForge.EVENT_BUS.register(new Main());
 
         ClientProxy.keyBindings = new KeyBinding[2];
+<<<<<<< HEAD
         ClientProxy.keyBindings[0] = new KeyBinding("key.macro", Keyboard.KEY_J, "key.categories.McMacro");
+=======
+        ClientProxy.keyBindings[0] = new KeyBinding("Start Macro", Keyboard.KEY_J, "key.categories.McMacro" );
+>>>>>>> cec622fa6d503fbef4d5a2fa2ea1cbaee5f2d1d1
         //for (int i = 0; i < ClientProxy.keyBindings.length; i++)
         //ClientRegistry.registerKeyBinding(ClientProxy.keyBindings[i]);
         ClientRegistry.registerKeyBinding(ClientProxy.keyBindings[0]);
