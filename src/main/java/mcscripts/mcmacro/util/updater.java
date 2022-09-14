@@ -60,14 +60,17 @@ public class updater {
     public static void checkUpdater() {
         createConfigFolder();
         createVersion();
-        /*try {
-            Path updater = Paths.get((updater.class.getProtectionDomain().getCodeSource().getLocation()
-                    .toURI()).getPath()).getParent();
-            if (Files.exists(Paths.get(updater + "/McMacro-Updater.jar")))
-            downloadMod("https://github.com/McLovin-bot/McMacro/releases/download/McMacro-Download/McMacro.jar", new File(updater.getParent() + "/McMacro-Updater.jar"));
-            System.out.println("Mod Updated");
-        } catch (URISyntaxException | IOException e) {
+        try {
+            Path updater = Paths.get(String.valueOf(Loader.instance().getConfigDir()));
+            System.out.println(updater);
+            if (!Files.exists(Paths.get(updater.getParent() + "/mods/McMacro-Updater.jar"))) {
+                downloadMod("https://github.com/McLovin-bot/McMacro/releases/download/updater/McMacro-Updater.jar", new File(updater.getParent() + "/mods/McMacro-Updater.jar"));
+                System.out.println("McMacro: Updater Installed");
+            } else {
+                System.out.println("McMacro: Updater Already Installed");
+            }
+        } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 }
